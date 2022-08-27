@@ -1,0 +1,132 @@
+body { font-family: Arial, sans-serif; }
+
+body.nav-inactive {
+
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+nav {
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    -moz-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    -webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    -ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    width: 20em;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f6f7;
+}
+
+
+.nav-bg {
+    display: none;
+}
+
+main {
+
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+    min-height: 90vh;
+    display: block;
+}
+
+footer {
+    flex-wrap: wrap-reverse;
+    display: block;
+    min-height: 10vh;
+}
+#nav-mobile-open {
+    display: none;
+}
+
+#nav-mobile-close {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #nav-mobile-open {
+        display: block;
+    }
+
+    #nav-mobile-close {
+        display: block;
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        right: -2.5em;
+        top: 0.5em;
+        background-color: transparent;
+        transition: opacity 0.2s linear;
+        transition-delay: 0ms;
+        opacity: 0;
+    }
+
+    #nav-mobile-open svg,
+    #nav-mobile-close svg {
+        width: 2em;
+        height: 2em;
+    }
+
+
+    nav {
+        flex: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        margin-left: -20em;
+    }
+    main {
+        margin-left: 3em;
+    }
+    body.nav-mobile-active nav {
+        margin-left: 0;
+    }
+
+    body.nav-mobile-active .nav-bg {
+        position: fixed;
+        display: block;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 900;
+        background-color: #000;
+        opacity: 0.5;
+    }
+
+    body.nav-mobile-active #nav-mobile-close {
+        transition: opacity 0.8s linear;
+        transition-delay: 200ms;
+        opacity: 1;
+    }
+    body.nav-mobile-active #nav-mobile-open {
+        transition: opacity 0.01s linear;
+        transition-delay: 0ms;
+        opacity: 0;
+        z-index: -10;
+    }
+    #nav-mobile-open {
+        display: block;
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        right: -2.5em;
+        top: 0.5em;
+        background-color: transparent;
+        transition: opacity 0.5s linear;
+        transition-delay: 350ms;
+        opacity: 1;
+    }
+}
